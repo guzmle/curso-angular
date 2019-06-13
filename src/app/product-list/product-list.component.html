@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <h3>Lista de Productos</h3>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of list">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>
+          <span
+            *ngIf="isShow(product)"
+            [ngClass]="{
+                         'text-warning': product.id === 3,
+                         'text-danger': product.id === 5
+                          }">
+            Esto es la descripcion del producto {{product.id}}
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
