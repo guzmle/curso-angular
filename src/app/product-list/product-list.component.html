@@ -10,8 +10,11 @@
       <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Nombre</th>
+        <th scope="col" (click)="order('name')">Nombre</th>
         <th scope="col">Descripción</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Fecha 2</th>
+        <th scope="col">Fecha 3</th>
       </tr>
       </thead>
       <tbody>
@@ -28,6 +31,9 @@
             Esto es la descripcion del producto {{product.id}}
           </span>
         </td>
+        <td>{{product.date | isodate}}</td>
+        <td>{{product.date | date: 'dd/MM/yyyy': 'UTC'}}</td>
+        <td>{{transformDate(product.date)}}</td>
       </tr>
       </tbody>
     </table>
