@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class IsodatePipe implements PipeTransform {
 
   transform(value: Date): any {
-    return value.toISOString();
+    return typeof value !== 'string' ? value.toISOString() : value;
   }
 
 }

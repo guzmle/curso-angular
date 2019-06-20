@@ -4,6 +4,25 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-6">
+    <div class="form-group">
+      <label for="search">Buscador</label>
+      <input type="text"
+             [(ngModel)]="search"
+             (ngModelChange)="searchChange($event)"
+             class="form-control"
+             id="search">
+    </div>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-success" (click)="onSearch()">
+
+      Buscar
+    </button>
+  </div>
+</div>
+
 <div class="row mt-5">
   <div class="col-12">
     <table class="table">
@@ -24,10 +43,7 @@
         <td>
           <span
             leoColorStatus
-
             [item]="product"
-
-            *ngIf="isShow(product)"
             [ngClass]="{
                          'text-warning': product.id === 3,
                          'text-danger': product.id === 5

@@ -10,7 +10,8 @@ export class ListService {
   constructor() { }
 
   getList() {
-    if (!this.list || this.list.length) {
+    if (!this.list || !this.list.length) {
+      this.list = [];
       for (let i = 0; i < 10; i++) {
         this.list.push({
           date: new Date(),
