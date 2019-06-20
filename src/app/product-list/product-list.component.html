@@ -23,6 +23,10 @@
         <td>{{product.name}}</td>
         <td>
           <span
+            leoColorStatus
+
+            [item]="product"
+
             *ngIf="isShow(product)"
             [ngClass]="{
                          'text-warning': product.id === 3,

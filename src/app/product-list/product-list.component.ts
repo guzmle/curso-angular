@@ -36,6 +36,5 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   order(prop) {
-    console.log(prop);
   }
 }

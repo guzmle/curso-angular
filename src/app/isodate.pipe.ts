@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class IsodatePipe implements PipeTransform {
 
   transform(value: Date): any {
-    console.log('por aqui');
     return value.toISOString();
   }
 
