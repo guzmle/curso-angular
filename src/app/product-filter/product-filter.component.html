@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-6">
+    <div class="form-group">
+      <label for="search">Buscador</label>
+      <input type="text"
+             [(ngModel)]="search"
+             class="form-control"
+             id="search">
+    </div>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-success" (click)="onSearchChange()">
+
+      Buscar
+    </button>
+  </div>
+</div>

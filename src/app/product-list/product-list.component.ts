@@ -8,7 +8,7 @@ import { ListService } from '../list.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  search = '';
+  search = 'Leo';
   original: { name: string, id: number, date: Date }[] = [];
   list: { name: string, id: number, date: Date }[] = [];
 
@@ -33,11 +33,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
     console.log(prop);
   }
 
-  searchChange(valor) {
-    this.search = valor;
-  }
-
-  onSearch() {
+  onSearch(data) {
     this.list = this.original.filter((obj) => obj.name.startsWith(this.search));
+    this.search = '';
   }
 }
