@@ -23,7 +23,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let product of list">
+      <tr *ngFor="let product of list" (click)="goToDetail(product)">
         <th scope="row">{{product.id}}</th>
         <td>{{product.name}}</td>
         <td>

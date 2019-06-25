@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { IsodatePipe } from '../isodate.pipe';
 import { ListService } from '../list.service';
 
@@ -12,7 +14,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
   original: { name: string, id: number, date: Date }[] = [];
   list: { name: string, id: number, date: Date }[] = [];
 
-  constructor(private isoDate: IsodatePipe, private service: ListService) { }
+  constructor(private isoDate: IsodatePipe,
+              private service: ListService,
+              private router: Router) { }
 
   ngOnInit() {
     this.original = this.service.getList();
@@ -36,5 +40,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
   onSearch(data) {
     this.list = this.original.filter((obj) => obj.name.startsWith(this.search));
     this.search = '';
+  }
+
+  goToDetail(product) {
+    this.router.navigate(['detail', product.id], {
+      queryParams: {
+        id: product.id,
+      },
+    });
   }
 }
