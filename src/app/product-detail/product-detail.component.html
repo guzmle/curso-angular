@@ -1,3 +1,31 @@
-<p>
-  product-detail works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text"
+             [(ngModel)]="form.name"
+             class="form-control"
+             id="name">
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <label for="search">Fecha</label>
+      <input type="date"
+             [(ngModel)]="form.date"
+             class="form-control"
+             id="search">
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-danger" (click)="returnLastPage()">
+
+      Buscar
+    </button>
+
+    <button class="btn btn-success" (click)="save()">
+
+      Buscar
+    </button>
+  </div>
+</div>
