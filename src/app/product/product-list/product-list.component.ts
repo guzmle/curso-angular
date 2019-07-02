@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { IsodatePipe } from '../isodate.pipe';
-import { ListService } from '../list.service';
+import { ListService } from '../../list.service';
+import { IsodatePipe } from '../../shared/pipes/isodate.pipe';
 
 @Component({
   selector: 'leo-product-list',
@@ -48,5 +48,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
         id: product.id,
       },
     });
+  }
+
+  notificateChild() {
+    this.service.notificateMessage({message: 'Mensaje desde el Padre', id: 1});
   }
 }

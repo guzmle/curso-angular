@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ListService } from '../../list.service';
 
 @Component({
   selector: 'leo-product-filter',
@@ -23,7 +24,11 @@ export class ProductFilterComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private service: ListService) {
+
+    this.service.notificatorChanges.subscribe(value => console.log('Mi padre me mandó algo', value));
+
+  }
 
   ngOnInit() {
   }

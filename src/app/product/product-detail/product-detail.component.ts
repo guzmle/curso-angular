@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
-import {ListService} from '../list.service';
+import {ListService} from '../../list.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -30,7 +30,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.formReact.get('name').valueChanges.subscribe((text) => {
       console.log(text);
-    })
+    });
   }
 
   ngOnInit() {

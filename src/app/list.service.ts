@@ -1,9 +1,12 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
+
+  private notificator = new Subject();
 
   private list: { name: string, id: number, date: Date }[] = [];
 
@@ -31,5 +34,13 @@ export class ListService {
   update(item) {
     const exist = this.list.find((value) => value.id === item.id);
     exist.name = item.name;
+  }
+
+  public get notificatorChanges() {
+    return this.notificator.asObservable();
+  }
+
+  public notificateMessage(message: any) {
+    this.notificator.next(message);
   }
 }
