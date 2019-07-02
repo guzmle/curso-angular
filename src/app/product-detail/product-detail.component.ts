@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {ListService} from '../list.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'leo-product-detail',
@@ -10,6 +11,8 @@ import {ListService} from '../list.service';
 })
 export class ProductDetailComponent implements OnInit {
 
+  public formReact: FormGroup;
+
   public form: { id?: number, name: string, date: Date } = {
     name: '',
     date: null,
@@ -17,7 +20,17 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private service: ListService,
-              private location: Location) {
+              private location: Location,
+              private fb: FormBuilder) {
+
+    this.formReact = this.fb.group({
+      name: [{value: null, disabled: false}, [Validators.required]],
+      date: [null, [Validators.required]],
+    });
+
+    this.formReact.get('name').valueChanges.subscribe((text) => {
+      console.log(text);
+    })
   }
 
   ngOnInit() {
@@ -49,6 +62,14 @@ export class ProductDetailComponent implements OnInit {
 
   public returnLastPage() {
     this.location.back();
+  }
+
+  public saveReact() {
+    if (this.formReact.valid) {
+      console.log(this.formReact.value);
+    } else {
+      alert('esta malo el formulario');
+    }
   }
 
 }

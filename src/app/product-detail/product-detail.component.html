@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-6">
     <div class="form-group">
       <label for="name">Nombre</label>
       <input type="text"
@@ -8,13 +8,30 @@
              id="name">
     </div>
   </div>
-  <div class="col-12">
+  <div class="col-6">
     <div class="form-group">
-      <label for="search">Fecha</label>
-      <input type="date"
-             [(ngModel)]="form.date"
+      <label for="nameReact">Nombre React</label>
+      <input type="text"
+             [formControl]="formReact.get('name')"
              class="form-control"
-             id="search">
+             id="nameReact">
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="date"
+             id="date"
+             class="form-control">
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-group">
+      <label for="dateReact">Fecha React</label>
+      <input type="date"
+             [formControl]="formReact.get('date')"
+             id="dateReact"
+             class="form-control">
     </div>
   </div>
   <div class="col-12">
@@ -24,6 +41,11 @@
     </button>
 
     <button class="btn btn-success" (click)="save()">
+
+      Buscar
+    </button>
+
+    <button class="btn btn-success" (click)="saveReact()">
 
       Buscar
     </button>
